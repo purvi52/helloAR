@@ -1,0 +1,22 @@
+How to manage API limit?
+1. To read the API documentation properly to understand the API limit provided by API provider.
+2. When you encounter rate limit errors, implement exponential backoff. To wait for an increasing amount of time before making 
+additional requests. Start with a short delay (e.g., a few seconds) and gradually increase the delay for each retry.
+3. API requests are rate-limited, the API server typically responds with an error code (e.g., HTTP 429)
+4. Implement monitoring and logging to keep track of your API usage. This helps you identify patterns of high traffic and potential issues before hitting rate limits.
+5. To incorporate error handling and notifications into your application so that you can be alerted when rate limit errors occur.
+
+What would you do if you hit the rate limit?
+1. try-catch block-> We will use try-catch block to catch the API rate limit error.We will throw error with catch block.
+ Rate limit errors are often indicated by HTTP status code 429 (Too Many Requests).
+2. Limit Retries: To implement a maximum retry limit to prevent your application from endlessly retrying the API request if the rate limit issue 
+persists. After reaching the maximum retries, We can notify the user or log the error.
+3. Monitor and Log: Implement logging and monitoring to keep track of rate limit errors and your application's retry behavior. This information 
+can help you identify patterns of high traffic or potential issues with your application's usage of the API.
+
+
+How to handle API errors or city names that cannot be found.
+
+1. We will check for API error responses like 401,401.
+2. We will use try-catch block to handle errors.
+3. In case of "city not found", we will return a new component.
